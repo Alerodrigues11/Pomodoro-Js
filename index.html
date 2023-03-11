@@ -7,26 +7,35 @@
   <!--- STYLES -->
   <link rel="stylesheet" href="style.css">
 
-  <!--- JS -->
-  <script src="index.js" defer></script>
-
   <title>Pomodoro.JS</title>
 </head>
 <body>
 
   <div class="main">
     <div class="primary__btns">
-      <button id="pomodoro">Pomodoro</button>
-      <button id="short__break">Short Break</button>
-      <button id="long__break">Long Break</button>
+      <button type="button" id="pomodoro">Pomodoro</button>
+      <button type="button" id="short__break">Short Break</button>
+      <button type="button" id="long__break">Long Break</button>
     </div>
-    <div id="timer"></div>
+    <div id="timer">00:00</div>
     <div class="setting__btns">
-      <button id="start">Start</button>
-      <button id="reset">Reset</button>
-      <button id="config">Config</button>
+      <button type="button" id="start">Start</button>
+      <button type="button" id="reset">Reset</button>
+      <button type="button" id="config">Config</button>
     </div>
   </div>
-  
+  <div class="config__details">
+    <div class="config__fields" id="config__fields">
+      <label for="start__input">Pomodoro</label>
+      <input type="number" id="start__input">
+      <label for="first__break">Short Break</label>
+      <input type="number" id="first__break">
+      <label for="second__break">Long Break</label>
+      <input type="number" id="second__break">
+
+      <button type="submit" id="save__changes">Save Changes</button>
+    </div>
+
+  <script src="index.js"></script>
 </body>
 </html>
