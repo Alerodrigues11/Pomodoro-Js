@@ -1,13 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body::before {
+  content: "";
+  background-image: url(./img/tokyo-wallpaper.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -1;
+  filter: brightness(0.5);
 }
 
 body {
-  background-image: url(./img/tokyo-wallpaper.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
 }
@@ -22,29 +35,45 @@ body {
   gap: 18px;
 }
 
-.primary__btns button, .setting__btns button {
-  font-weight: bold;
-  font-size: 17px;
-  color: #000000;
-  background: #FFFFFF;
-  border: solid #000000 1px;
-  border-radius: 40px;
-  padding: 12px;
-  opacity: 0.7;
+.primary__btns {
+  display: flex;
+  gap: 15px;
 }
 
-.setting__btns button {
-  width: 80px;
-  padding: 12px;
+.main__btn, .config__btn {
+  font-size: 17px;
+  color: #000000;
+  background: #bbb7b7d7;
+  border: solid #000000 1px;
+  border-radius: 10px;
+  padding: 9px;
+  opacity: 0.7;
+  transition: 0.5ms;
+  cursor: pointer;
+  min-width: 80px;
+}
+
+.main__btn:hover, .config__btn:hover {
+  background: #fdfdfd;
+  opacity: 1;
+}
+
+.setting__btns {
+  display: flex;
+  gap: 15px;
 }
 
 #timer {
   font-size: 9rem;
   color: #FFFFFF;
-  font-weight: bold;
-
 }
 
+/* ACTIVE */
+
+.active {
+  background: #fdfdfd;
+  opacity: 1;
+}
 
 /* CONFIG */
 
@@ -65,14 +94,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 7px;
   width: 250px;
-  height: 200px;
+  height: 250px;
 
   border: 2px white solid;
   border-radius: 15px;
-
-  background-color: gray;
+  background-color: #111111e8;
 }
 
 .show {
@@ -81,7 +109,6 @@ body {
 
 .config__fields label {
   color: white;
-  font-weight: bold;
 }
 
 #start__input, #first__break, #second__break {
@@ -90,8 +117,15 @@ body {
 }
 
 #save__changes {
-  width: 100px;
+  width: 150px;
   height: 25px;
   background-color: grey;
   color: #FFFFFF;
+
+  border-radius: 5px;
+  margin-top: 10px;
 }
+
+
+
+
