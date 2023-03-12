@@ -126,6 +126,16 @@ body {
   margin-top: 10px;
 }
 
+@media screen and (max-width: 415px) {
 
+  .main__btn, .config__btn {
+    font-size: 11.5px;
+  }
+
+  #timer {
+    font-size: 6.5rem;
+  }
+
+}
 
 

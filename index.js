@@ -43,6 +43,7 @@ function setting (ev) {
     if(startInput != '') {
       timer.innerText = startInput;
       clearTimeout(intervalId);
+      timerValue = '';
       ev.target.classList.add('active');
       shortBreak.classList.remove('active');
       longBreak.classList.remove('active');
@@ -51,6 +52,7 @@ function setting (ev) {
     if(firstBreak != '') {
       timer.innerText = firstBreak;
       clearTimeout(intervalId);
+      timerValue = '';
       ev.target.classList.add('active');
       pomodoro.classList.remove('active');
       longBreak.classList.remove('active');
@@ -59,6 +61,7 @@ function setting (ev) {
     if(secondBreak != '') {
       timer.innerText = secondBreak;
       clearTimeout(intervalId);
+      timerValue = '';
       ev.target.classList.add('active');
       pomodoro.classList.remove('active');
       shortBreak.classList.remove('active');
@@ -94,20 +97,27 @@ function switchField (time) {
 }
 
 let intervalId;
+let timerValue;
 
 function startTimer () {
-  let timerInteger = parseInt(timer.innerText)
-  let timerValue = timerInteger * 60;
-  intervalId = setInterval(() => {
-    timerValue--;
-    let minutes = Math.floor(timerValue / 60);
-    let seconds = timerValue % 60;
-    let formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    timer.innerText = formattedTime;
-    switchField(formattedTime);
-  }, 1000);
+  if(start.textContent === 'Start') {
+    let timerInteger = parseInt(timer.innerText);
+    start.textContent = 'Pause';
+    timerValue = timerValue || timerInteger * 60;
+    intervalId = setInterval(() => {
+      timerValue--;
+      let minutes = Math.floor(timerValue / 60);
+      let seconds = timerValue % 60;
+      let formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      timer.innerText = formattedTime;
+      switchField(formattedTime);
+    }, 1000);
+  } else {
+    start.textContent = 'Start';
+    clearInterval(intervalId);
+  }
+  
 }
-
 
 function resetTimer () {
   clearTimeout(intervalId);
