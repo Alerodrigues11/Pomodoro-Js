@@ -29,6 +29,10 @@ saveChanges.addEventListener('click', () => {
   timer.innerText = startInput;
   document.querySelector('.config__details').style.height = '0';
   document.getElementById('config__fields').classList.remove('show');
+
+  pomodoro.classList.add('active');
+  shortBreak.classList.remove('active');
+  longBreak.classList.remove('active');
 })
 
 
@@ -44,6 +48,7 @@ function setting (ev) {
       timer.innerText = startInput;
       clearTimeout(intervalId);
       timerValue = '';
+      start.textContent = 'Start';
       ev.target.classList.add('active');
       shortBreak.classList.remove('active');
       longBreak.classList.remove('active');
@@ -53,6 +58,7 @@ function setting (ev) {
       timer.innerText = firstBreak;
       clearTimeout(intervalId);
       timerValue = '';
+      start.textContent = 'Start';
       ev.target.classList.add('active');
       pomodoro.classList.remove('active');
       longBreak.classList.remove('active');
@@ -62,6 +68,7 @@ function setting (ev) {
       timer.innerText = secondBreak;
       clearTimeout(intervalId);
       timerValue = '';
+      start.textContent = 'Start';
       ev.target.classList.add('active');
       pomodoro.classList.remove('active');
       shortBreak.classList.remove('active');
